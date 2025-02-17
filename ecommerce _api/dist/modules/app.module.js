@@ -27,7 +27,7 @@ appModule.config(['$routeProvider', function ($routeProvider) {
             controllerAs: 'CartCtrl' // Use 'aboutCtrl' as alias for the controller instance
         })
             .otherwise({
-            redirectTo: 'product' // Default route is home
+            redirectTo: 'auth' // Default route is home
         });
     }]);
 appModule.controller('ProductController', ProductController);

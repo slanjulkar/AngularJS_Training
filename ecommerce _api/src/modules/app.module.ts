@@ -35,7 +35,7 @@ appModule.config(['$routeProvider', ($routeProvider:any) => {
       }) 
       
       .otherwise({
-        redirectTo: 'product'  // Default route is home
+        redirectTo: 'auth'  // Default route is home
       });
   }]);
 
