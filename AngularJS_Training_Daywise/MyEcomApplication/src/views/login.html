@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS for styling -->
+        <style>
+            body {
+                background-image: url('https://www.itsystemonline.it/wp-content/uploads/2017/04/e-commerce-background.jpg'); /* Replace with actual image URL */
+                background-size: cover; /* Ensure the background image covers the entire page */
+                background-position: center; /* Center the background image */
+                background-attachment: fixed; /* Make the background fixed while scrolling */
+                height: 100vh; /* Full viewport height */
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff; /* White text color to contrast with background */
+            }
+    
+            .login-container {
+                background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for the form */
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 130%;
+                margin: -50%;
+            }
+    
+            .login-container h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333; /* Dark text for heading */
+            }
+    
+            
+            .login-container input {
+                border-radius: 5px;
+            }
+    
+            .login-container button {
+                width: 100%;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+    
+            .login-container button:hover {
+                background-color: #0056b3;
+            }
+    
+            .footer {
+                text-align: center;
+                margin-top: 20px;
+                font-size: 14px;
+                color: #888;
+            }
+    
+            .footer a {
+                color: #007bff;
+                text-decoration: none;
+            }
+    
+            .footer a:hover {
+                text-decoration: underline;
+            }
+        </style>
+
+    <!-- AngularJS Application -->
+    <script src="./angular.min.js"></script>
+    <script src="./angular-route.min.js"></script>
+
+</head>
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="AuthController" class="login-container">
+            <h1>Login</h1>
+            <form ng-submit="login()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" ng-model="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" ng-model="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <div class="footer">
+                <p>Don't have an account? <a href="#">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

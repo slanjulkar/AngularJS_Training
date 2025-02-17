@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app="loginModule">
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body ng-controller="LoginController as vm">
+    <h1>{{ vm.message }}</h1>
+    <form ng-submit="vm.login()">
+      <input type="text" ng-model="vm.username" placeholder="Username" required />
+      <input type="password" ng-model="vm.password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </body>
+</html>

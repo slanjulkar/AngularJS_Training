@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart with AngularJS and TypeScript</title>
+    <link rel="stylesheet" href="./styles/cart.css">
+</head>
+<body>
+
+    <div class="container" ng-controller="ShoppingCartController as data">
+        <h1>Your Shopping Cart</h1>
+        
+        <div ng-if="data.cart.length === 0">
+            <p>Your cart is empty!</p>
+        </div>
+    
+        <div ng-repeat="item in data.cart" class="cart-item">
+            <img ng-src="{{item.imagePath}}" alt="{{item.productName}}">
+            <div class="cart-item-info">
+                <h2>{{item.productName}}</h2>
+                <p><strong>Rs. {{data.getItemTotalPrice(item) | number:2}}</strong></p> <!-- Display total price for this item -->
+    
+                <!-- Quantity controls (increase and decrease) -->
+                <button ng-click="data.decreaseQuantity($index)" ng-disabled="item.quantity <= 1">-</button>
+                <span>Quantity: {{item.quantity}}</span>
+                <button ng-click="data.increaseQuantity($index)">+</button>
+            </div>
+    
+            <button class="btn btn-danger remove-btn" ng-click="data.removeFromCart($index)">
+                <i class="fas fa-trash"></i>&nbsp;&nbsp;Remove
+            </button>
+        </div>
+    
+        <!-- Display grand total amount for the entire cart -->
+        <div class="total">
+            <strong>Grand Total: Rs. {{data.getTotalPrice() | number:2}}</strong> <!-- Display grand total -->
+        </div>
+        <br>
+        <button style="float:right" class="btn btn-success checkout-btn" ng-disabled="data.cart.length === 0" ng-click="data.checkout()">
+            <i class="fa fa-cart-arrow-down"></i>&nbsp;Proceed to Checkout
+        </button>
+    </div>
+    
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+    <!--jQuery CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!-- Fontawsome Icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .login-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        .forgot-password {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+<div ng-app="authmodule">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">TFL Store Login</h1>
+
+        <div class="login-form-container" ng-controller="LoginController">
+            <h3 class="text-center">Login</h3>
+
+            <form ng-submit="onLogin()">
+                <!-- Username Input -->
+                <div class="form-group">
+                    <label for="email">Username</label>
+                    <input type="email" id="email" class="form-control" ng-model="user.email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" ng-model="user.password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+                <!-- Forgot Password Link -->
+                <div class="mt-3 text-center">
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <script src="./modules/app.js"></script>
+    <script src="./modules/auth.module.js"></script>
+    <script src="./controllers/login.controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Website</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    
+    <!-- AngularJS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!-- Fontawsome Icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    <!-- Your Custom JS Files -->
+    <script src="./modules/app.js"></script>
+    <script src="./modules/catlog.module.js"></script>
+    <script src="./controllers/login.controller.js"></script>
+    <script src="./controllers/product.controller.js"></script>
+
+    <style>
+        /* Custom CSS for shadow effect on cards */
+        .product-card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+            transition: box-shadow 0.3s ease-in-out; /* Smooth transition effect */
+            display: flex;
+            flex-direction: column; /* Allows card content to stretch */
+            height: 100%;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+        }
+
+        /* Flexbox for making cards the same height */
+        .card-body {
+            flex-grow: 1; /* Ensures the body takes up remaining space */
+        }
+
+        /* Flexbox for card container row */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Ensure cards are equal height */
+        .col-md-4 {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+
+</head>
+<body>
+<div ng-app="catalogmodule">
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">TFL Store</h1>
+        
+        
+        <!-- Product Section -->
+        <div class="container" ng-controller="ProductController">
+            <h3 class="mb-4">Our Products</h3>
+            <div class="row">
+                <div class="col-md-4" ng-repeat="product in products">
+                    <!-- Bootstrap Card -->
+                    <div class="card mb-4 product-cart">
+                        <img class="card-img-top" ng-src="{{product.image}}" alt="{{product.prodname}}" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.prodname}}</h5>
+                            <p class="card-text"><strong>Price:</strong> {{product.price}}</p>
+                            <p class="card-text"><strong>Description:</strong> {{product.description}}</p>
+
+                            <!-- Add to Cart Button with Icon -->
+                            <button class="btn btn-primary" ng-click="addToCart(product)">
+                                <i class="fa fa-cart-plus"></i>&nbsp; Add to Cart
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
